@@ -1,0 +1,118 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('vi5.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
+
+.stopwatch {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #ffffff; /* Golden color for the headline */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 i {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.circle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  box-shadow: 0 0 60px rgba(114, 255, 7, 0.5);
+  border: 10px solid #fff; /* Default color for the circle border (initially white) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px; /* Increased margin-bottom to move the buttons lower */
+  animation: circleColorChange 8s linear infinite; /* Keyframe animation for color change */
+}
+
+@keyframes circleColorChange {
+  0% { border-color: #ff653a; } /* Red */
+  25% { border-color: #96e113ad; } /* Green */
+  50% { border-color: #ec43d0; } /* Blue */
+  75% { border-color: #23a6d5; } /* Pink */
+  100% { border-color: #23d5ab; } /* Red */
+}
+
+.circle.running {
+  animation-play-state: running; /* Start animation when running */
+}
+
+.circle.paused {
+  border-color: #FF0000; /* Red color when stopwatch is paused */
+  animation-play-state: paused; /* Pause animation when paused */
+}
+
+.circle.reset {
+  border-color: #fff; /* White color when stopwatch is reset */
+  animation: none; /* No animation when reset */
+}
+
+.display {
+  font-size: 2em;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.circle-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: #70f5ff; /* Golden color for the buttons */
+  color: #282c34;
+  font-size: 0.8em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease; /* Added color transition */
+  box-shadow: 0 20px 40px rgba(9, 243, 224, 0.3); /* Added shadow */
+}
+
+.circle-btn:hover {
+  background-color: #4b3d0b; /* Slightly darker golden color for hover effect */
+  color: #fff; /* White text color on hover */
+  transform: scale(1.1); /* Scale up by 10% on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increased shadow on hover */
+}
+
+.laps {
+  margin-top: 20px;
+}
+
+#lapList {
+  list-style: none;
+  padding: 0;
+}
+
+#lapList li {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #FFD700; /* Golden border color */
+  border-radius: 25px; /* Rounded corners to make it oval */
+  padding: 10px 20px; /* Adjust padding to make it look like an oval */
+  margin: 5px 0; /* Spacing between lap items */
+  color: white; /* Text color */
+  display: block; /* Ensure it is block to appear one below another */
+  width: auto;
+}
